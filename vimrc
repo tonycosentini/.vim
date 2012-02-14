@@ -39,12 +39,9 @@ set nowritebackup                 " And again.
 set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 " UNCOMMENT TO USE
-"set tabstop=2                    " Global tab width.
-"set shiftwidth=2                 " And again, related.
-"set expandtab                    " Use spaces instead of tabs
-
-set expandtab			  " Soft tabs
-set tabstop=2                     
+set tabstop=2                    " Global tab width.
+set shiftwidth=2                 " And again, related.
+set expandtab                    " Use spaces instead of tabs
 
 set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
@@ -52,6 +49,10 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{exists('*CapsLockStatusline')?CapsLo
 
 " Or use vividchalk
 colorscheme vividchalk
+
+" Esc mappings
+map! ii <Esc>
+map! ;; <Esc>
 
 " Tab mappings.
 map <leader>tt :tabnew<cr>
@@ -63,6 +64,26 @@ map <leader>tp :tabprevious<cr>
 map <leader>tf :tabfirst<cr>
 map <leader>tl :tablast<cr>
 map <leader>tm :tabmove
+
+" Store swap files in a separate directory.
+set backupdir=./.backup,.,/tmp
+set directory=.,./.backup,/tmp 
+
+" Remove toolbar in MacVim.
+if has("gui_running")
+    set guioptions=egmrt
+endif
+
+
+" Disable arrow keys.
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+nnoremap <left> <nop>
+nnoremap <right> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
 
 " Uncomment to use Jamis Buck's file opening plugin
 "map <Leader>t :FuzzyFinderTextMate<Enter>
